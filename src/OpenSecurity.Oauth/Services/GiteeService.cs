@@ -27,7 +27,7 @@ public class GiteeService : IOauthService
     {
         var redirectUrl = $"{context.Request.Scheme}://{context.Request.Host}{context.Request.PathBase}/opensecurity/authorize?service=gitee";
         redirectUrl = WebUtility.UrlEncode(redirectUrl);
-        return $"https://gitee.com/oauth/authorize?client_id={this.config["Oauth:Gitee:client_id"]}&redirect_uri={redirectUrl}&response_type=code&scope=user_info";
+        return $"https://gitee.com/oauth/authorize?client_id={this.config["Oauth:Gitee:client_id"]}&redirect_uri={redirectUrl}&response_type=code&scope=user_info%20emails";
     }
 
     public async Task<(UserInfo?, Exception?)> GetUserInfo(HttpContext context, string authCode)
