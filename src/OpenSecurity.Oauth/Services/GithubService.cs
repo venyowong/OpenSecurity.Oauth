@@ -61,6 +61,8 @@ public class GithubService : IOauthService
 
         requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/user");
         requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        requestMessage.Headers.Add("User-Agent", ".net core");
+        requestMessage.Headers.Add("Accept", "application/json");
         response = await client.SendAsync(requestMessage);
         if (!response.IsSuccessStatusCode || response.Content == null)
         {

@@ -10,6 +10,7 @@ builder.WebHost
     });
 var app = builder.Build();
 
+app.UsePathBase("/test");
 app.UseOauth();
 app.MapGet("/", () => "Hello World!");
 
