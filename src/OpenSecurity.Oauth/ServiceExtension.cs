@@ -10,7 +10,8 @@ public static class ServiceExtension
     {
         services.AddHttpClient();
         services.AddTransient<IOauthService, GithubService>()
-            .AddTransient<IOauthService, GiteeService>();
+            .AddTransient<IOauthService, GiteeService>()
+            .AddTransient<IOauthService, StackExchangeService>();
         return services;
     }
 
